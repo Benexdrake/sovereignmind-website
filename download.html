@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herunterladen – SovereignMind</title>
+  <meta name="description" content="SovereignMind installieren: Ein Befehl für Windows, Linux und macOS.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="28" height="28">SovereignMind</a>
+      <nav class="main" aria-label="Hauptnavigation">
+        <a href="index.html#funktionen">Funktionen</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="download.html" aria-current="page">Herunterladen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <h1 style="margin-top:40px">SovereignMind installieren</h1>
+    <p>Ein Befehl richtet den kompletten Stack ein. Wählen Sie Ihr Betriebssystem.</p>
+    <p class="version" data-version hidden></p>
+
+    <div class="tabs" role="tablist" aria-label="Betriebssystem">
+      <button class="tab" role="tab" id="tab-windows" data-os="windows" aria-controls="panel-windows" aria-selected="false">Windows</button>
+      <button class="tab" role="tab" id="tab-linux" data-os="linux" aria-controls="panel-linux" aria-selected="false">Linux</button>
+      <button class="tab" role="tab" id="tab-macos" data-os="macos" aria-controls="panel-macos" aria-selected="false">macOS</button>
+    </div>
+
+    <!-- Windows -->
+    <div class="panel" role="tabpanel" id="panel-windows" aria-labelledby="tab-windows" hidden>
+      <p>In PowerShell ausführen:</p>
+      <div class="cmd"><pre><code data-cmd="windows"></code></pre><button type="button" data-copy="windows">Kopieren</button></div>
+      <p><a data-script="windows" href="#" rel="noopener">Skript vor dem Ausführen ansehen</a></p>
+      <h2>Voraussetzungen</h2>
+      <ul class="req">
+        <li>Windows 10 oder 11</li>
+        <li>Docker Desktop (mit Compose)</li>
+        <li>Internetzugang für Installation und ersten Modell-Download. Fehlt Ollama, lädt der Installer es mit (ca. 1,5 GB).</li>
+        <li>Empfohlen: GPU mit ausreichend VRAM; ohne GPU läuft alles auf der CPU, deutlich langsamer.</li>
+        <li>Ein Zugangstoken (siehe unten)</li>
+      </ul>
+      <div class="note">Ollama wird nativ installiert, weil AMD-GPUs unter Windows nur so genutzt werden. In Docker-Containern läuft das Modell dort auf CPU und RAM.</div>
+      <div class="note">Optional: Der <strong>Hardware-Agent</strong> (Windows-Dienst für echte CPU-/RAM-/GPU-Werte im Hardware-Dashboard) braucht Administratorrechte. Der Installer fragt danach.</div>
+    </div>
+
+    <!-- Linux -->
+    <div class="panel" role="tabpanel" id="panel-linux" aria-labelledby="tab-linux" hidden>
+      <p>Im Terminal ausführen:</p>
+      <div class="cmd"><pre><code data-cmd="linux"></code></pre><button type="button" data-copy="linux">Kopieren</button></div>
+      <p><a data-script="linux" href="#" rel="noopener">Skript vor dem Ausführen ansehen</a></p>
+      <h2>Voraussetzungen</h2>
+      <ul class="req">
+        <li>Docker Engine mit Compose-Plugin</li>
+        <li>Internetzugang für Installation und ersten Modell-Download</li>
+        <li>Empfohlen: GPU mit ausreichend VRAM (NVIDIA oder AMD); sonst CPU, deutlich langsamer.</li>
+        <li>Ein Zugangstoken (siehe unten)</li>
+      </ul>
+      <div class="note">Das Chat-Modell wird automatisch nach verfügbarem VRAM gewählt und kann im Admin-Bereich unter „KI-Einstellungen“ gewechselt werden.</div>
+    </div>
+
+    <!-- macOS -->
+    <div class="panel" role="tabpanel" id="panel-macos" aria-labelledby="tab-macos" hidden>
+      <p>Im Terminal ausführen:</p>
+      <div class="cmd"><pre><code data-cmd="macos"></code></pre><button type="button" data-copy="macos">Kopieren</button></div>
+      <p><a data-script="macos" href="#" rel="noopener">Skript vor dem Ausführen ansehen</a></p>
+      <h2>Voraussetzungen</h2>
+      <ul class="req">
+        <li>Docker Desktop (mit Compose)</li>
+        <li>Internetzugang für Installation und ersten Modell-Download</li>
+        <li>Ein Zugangstoken (siehe unten)</li>
+      </ul>
+      <div class="note warn">macOS ist bisher nur wenig getestet und gilt als <strong>experimentell</strong>.</div>
+    </div>
+
+    <h2>Nach der Installation</h2>
+    <ol>
+      <li>App öffnen: <a href="http://localhost:3000" rel="noopener">http://localhost:3000</a></li>
+      <li>Beim ersten Aufruf folgt die Weiterleitung auf <code>/setup</code>. Dort legen Sie aus der Lizenzdatei das Unternehmen und den ersten Admin an.</li>
+      <li>Beim ersten Start werden die KI-Modelle geladen, das dauert je nach Verbindung einige Minuten.</li>
+    </ol>
+    <p>Der Installer legt das Verzeichnis <code>./sovereignmind</code> an. Vorhandene <code>.env</code>, <code>config.jsonl</code> und <code>models.json</code> bleiben bei erneutem Ausführen unverändert.</p>
+
+    <h2>Zugangstoken</h2>
+    <p>Die Images sind nicht öffentlich. Für den Download brauchen Sie ein Token mit der Berechtigung <code>read:packages</code>.
+      Es wird vom Anbieter bereitgestellt, hat nur Lesezugriff, läuft ab und kann jederzeit widerrufen werden.
+      Token anfordern: siehe <a href="index.html#kontakt">Kontakt</a>. Nicht weitergeben und nicht in Repos oder Chats posten.</p>
+    <div class="note warn"><strong>Sicherheitshinweis:</strong> <code>docker login</code> speichert das Token je nach System im Credential-Store oder unverschlüsselt in <code>~/.docker/config.json</code>.
+      Auf gemeinsam genutzten Rechnern nach der Installation <code>docker logout ghcr.io</code> ausführen.</div>
+
+    <h2>Update, Stoppen, Datensicherung</h2>
+    <p><strong>Update:</strong> Installer erneut ausführen.</p>
+    <div class="cmd"><pre><code>cd sovereignmind
+docker compose down          # stoppen, Daten bleiben erhalten
+docker compose down -v       # stoppen und alle Docker-Daten löschen (auch die Datenbank!)</code></pre></div>
+    <p><strong>Datensicherung</strong> (im Installationsverzeichnis, Stack läuft). Datenbank und Schlüsselordner gehören zusammen: ohne die Schlüssel sind gespeicherte Connector-Zugangsdaten unlesbar.</p>
+    <div class="cmd"><pre><code>bash backup-db.sh                    # -> backups/&lt;Zeitstempel&gt;/
+bash restore-db.sh backups/&lt;Ordner&gt;  # fragt vorher nach, überschreibt die Datenbank
+# Windows: .\backup-db.ps1 bzw. .\restore-db.ps1 backups\&lt;Ordner&gt;</code></pre></div>
+    <p>Den Ordner <code>backups/</code> geschützt aufbewahren (enthält die Schlüssel). Dokumente sind darin nicht enthalten.</p>
+
+    <details>
+      <summary>Einstellungen per Umgebungsvariable</summary>
+      <div class="overflow">
+        <table>
+          <thead><tr><th>Variable</th><th>Bedeutung</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr><td><code>SOVEREIGNMIND_GHCR_TOKEN</code></td><td>Zugangstoken (<code>read:packages</code>)</td><td>–</td></tr>
+            <tr><td><code>GITHUB_USER</code></td><td>Benutzername zum Token</td><td>vom Anbieter vorgegeben</td></tr>
+            <tr><td><code>SOVEREIGNMIND_DIR</code></td><td>Installationsverzeichnis</td><td><code>./sovereignmind</code></td></tr>
+            <tr><td><code>SOVEREIGNMIND_REF</code></td><td>Version (Tag oder Branch)</td><td><code>main</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Weitere Einstellungen (Ports, Impressum, Inferenz-Backend <code>LLM_SERVER</code>, Logging) stehen in der <code>config.jsonl</code> im Installationsverzeichnis. Geheimnisse gehören in die <code>.env</code>.</p>
+    </details>
+
+    <p style="margin-bottom:48px">Bei Problemen bitte beim Anbieter melden und die Ausgabe des Installers mitschicken.</p>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© SovereignMind</span>
+      <span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

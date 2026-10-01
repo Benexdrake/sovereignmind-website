@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SovereignMind – On-Premise KI-Assistent</title>
+  <meta name="description" content="DSGVO-konformer KI-Assistent über die eigenen Firmendokumente, der komplett lokal beim Kunden läuft. Für den DACH-Mittelstand.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="28" height="28">SovereignMind</a>
+      <nav class="main" aria-label="Hauptnavigation">
+        <a href="#funktionen">Funktionen</a>
+        <a href="#architektur">Architektur</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn" href="download.html">Herunterladen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>On-Premise KI-Assistent für den DACH-Mittelstand</h1>
+        <p>Ein DSGVO-konformer Chat über Ihre eigenen Firmendokumente, der komplett lokal bei Ihnen läuft.
+          Dokumente und Prompts verlassen Ihr Netzwerk nicht, es gibt keine Anbindung an OpenAI, Google oder andere Cloud-KI-APIs.</p>
+        <div class="actions">
+          <a class="btn" href="download.html">Herunterladen</a>
+          <a class="btn secondary" href="#funktionen">Funktionen ansehen</a>
+        </div>
+        <p class="version" data-version hidden></p>
+      </div>
+    </section>
+
+    <section class="block" id="problem">
+      <div class="wrap">
+        <h2>Wofür ist das gedacht?</h2>
+        <p class="lead">Überall liegen sensible Dokumente, die nicht in eine US-Cloud dürfen. Ohne freigegebene Alternative
+          landen sie oft trotzdem in privaten ChatGPT-Accounts. SovereignMind ist die selbst gehostete Alternative.</p>
+        <div class="grid">
+          <div class="card"><h3>Kanzleien</h3><p>Verträge und Akten durchsuchen, ohne Mandantendaten aus der Hand zu geben.</p></div>
+          <div class="card"><h3>Personalabteilungen</h3><p>Richtlinien und Personalunterlagen befragen, ohne dass sie das Haus verlassen.</p></div>
+          <div class="card"><h3>Gesundheitswesen</h3><p>Handbücher und Dokumentation nutzbar machen, mit voller Datenhoheit.</p></div>
+          <div class="card"><h3>Industrie</h3><p>Handbücher und Fertigungspläne per Frage finden statt per Ordnersuche.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="funktionen">
+      <div class="wrap">
+        <h2>Funktionen</h2>
+        <p class="lead">Alles, was ein Team für den Alltag mit einem internen KI-Assistenten braucht.</p>
+        <div class="grid">
+          <div class="card"><h3>Lokale KI</h3><p>Sprachmodell und Embeddings laufen auf Ihrer Hardware (Ollama oder llama.cpp). Das Chat-Modell wird automatisch nach verfügbarem VRAM gewählt (NVIDIA, AMD, sonst CPU).</p></div>
+          <div class="card"><h3>Chat mit Quellenbelegen</h3><p>Fragen in natürlicher Sprache, Antworten mit klickbaren Verweisen ins Originaldokument. Antworten immer auf Deutsch.</p></div>
+          <div class="card"><h3>Dokumentenverwaltung</h3><p>PDF, DOCX, Tabellen u. a. werden automatisch geparst und durchsuchbar gemacht. Kategorien, Duplikaterkennung, Verarbeitungsstatus.</p></div>
+          <div class="card"><h3>Nutzer und Rollen</h3><p>Admin und Member, eigenes Branding pro Unternehmen.</p></div>
+          <div class="card"><h3>Assistenten und Prompt-Bibliothek</h3><p>Vorkonfigurierte Assistenten und wiederverwendbare Vorlagen für das ganze Team.</p></div>
+          <div class="card"><h3>Anbindung interner Systeme</h3><p>HTTP-Schnittstellen (DMS, ERP, Fachdatenbanken) lassen sich als Werkzeuge einbinden, die das Modell bei Bedarf selbst aufruft.</p></div>
+          <div class="card"><h3>Dateien im Chat</h3><p>Dokumente direkt in einer Unterhaltung hochladen, ohne sie dauerhaft abzulegen.</p></div>
+          <div class="card"><h3>Sprache</h3><p>Diktat und Vorlesen, lokal verarbeitet. Der Admin schaltet beides pro Unternehmen frei.</p></div>
+          <div class="card"><h3>Admin-Bereich</h3><p>Nutzer, Dokumente, Branding, Lizenz, KI-Einstellungen, Nutzungsstatistik, Logs und Hardware-Dashboard.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="architektur">
+      <div class="wrap">
+        <h2>Architektur in Kürze</h2>
+        <p class="lead">Alles läuft als Docker-Compose-Stack. Einzige Ausnahme: Ollama (Standard-Inferenz) läuft nativ auf dem Rechner und wird vom Installer bei Bedarf mitinstalliert.</p>
+        <div class="arch"><img src="assets/architektur.svg" alt="Web-Oberfläche greift auf das Backend zu; das Backend nutzt Inferenz, Vektordatenbank, Dokumentenverarbeitung, optional Sprache und PostgreSQL." width="760" height="360"></div>
+      </div>
+    </section>
+
+    <section class="block" id="screenshots">
+      <div class="wrap">
+        <h2>Screenshots</h2>
+        <p class="lead">Chat, Admin-Bereich und Hardware-Dashboard.</p>
+        <div class="shots">
+          <!-- Platzhalter: Bilder nach assets/screenshots/ legen und hier als <img> einbinden (nur Testdaten!). -->
+          <div class="shot">Chat – folgt</div>
+          <div class="shot">Admin-Bereich – folgt</div>
+          <div class="shot">Hardware-Dashboard – folgt</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="kontakt">
+      <div class="wrap">
+        <h2>Kontakt und Lizenz</h2>
+        <p class="lead">Für Lizenzanfragen und Zugangstoken wenden Sie sich bitte an den Anbieter.
+          <!-- TODO: Kontaktweg eintragen --> <a href="mailto:kontakt@example.com">kontakt@example.com</a>
+          · <a href="https://claude.ai/artifact/D8hR37cBCNKZLZEfdcZSXo" rel="noopener">Präsentation (12 Folien)</a></p>
+        <a class="btn" href="download.html">Zur Installation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© SovereignMind</span>
+      <span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
