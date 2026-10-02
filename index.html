@@ -79,12 +79,29 @@
     <section class="block" id="screenshots">
       <div class="wrap">
         <h2>Screenshots</h2>
-        <p class="lead">Chat, Admin-Bereich und Hardware-Dashboard.</p>
+        <p class="lead">Chat, Admin-Bereich und Hardware-Dashboard (Beispieldaten).</p>
         <div class="shots">
-          <!-- Platzhalter: Bilder nach assets/screenshots/ legen und hier als <img> einbinden (nur Testdaten!). -->
-          <div class="shot">Chat – folgt</div>
-          <div class="shot">Admin-Bereich – folgt</div>
-          <div class="shot">Hardware-Dashboard – folgt</div>
+          <figure class="shot">
+            <picture>
+              <source srcset="assets/screenshots/standard/dark/chat.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/screenshots/standard/light/chat.png" alt="Chat mit Antwort und Quellenangabe" width="1440" height="900" loading="lazy">
+            </picture>
+            <figcaption>Chat mit Quellenbelegen</figcaption>
+          </figure>
+          <figure class="shot">
+            <picture>
+              <source srcset="assets/screenshots/standard/dark/admin-nutzung.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/screenshots/standard/light/admin-nutzung.png" alt="Admin-Bereich: Nutzungsstatistik" width="1440" height="900" loading="lazy">
+            </picture>
+            <figcaption>Admin: Nutzung</figcaption>
+          </figure>
+          <figure class="shot">
+            <picture>
+              <source srcset="assets/screenshots/standard/dark/admin-hardware.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/screenshots/standard/light/admin-hardware.png" alt="Admin-Bereich: Hardware-Dashboard" width="1440" height="900" loading="lazy">
+            </picture>
+            <figcaption>Hardware-Dashboard</figcaption>
+          </figure>
         </div>
       </div>
     </section>

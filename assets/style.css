@@ -69,7 +69,9 @@ section.block > .wrap > p.lead { color: var(--muted); max-width: 720px; margin: 
 .arch img { width: 100%; height: auto; display: block; }
 
 .shots { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.shot { border: 2px dashed var(--border); border-radius: var(--radius); padding: 48px 16px; text-align: center; color: var(--muted); }
+.shot { margin: 0; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+.shot figcaption { margin-top: 8px; text-align: center; color: var(--muted); font-size: .9rem; }
 
 /* Download */
 .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-top: 24px; flex-wrap: wrap; }
