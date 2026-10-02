@@ -106,4 +106,106 @@
       })
       .catch(function () { /* ausblenden */ });
   }
+
+  // Screenshot-Galerie mit Lightbox (ohne JS bleibt die statische Auswahl mit Links auf die Originale)
+  var gallery = document.querySelector('[data-gallery]');
+  if (gallery) {
+    var BASE = 'assets/screenshots/';
+    var SHOTS = [
+      ['chat', 'Chat mit Quellenbelegen'],
+      ['einstellungen', 'Einstellungen'],
+      ['login', 'Anmeldung'],
+      ['chat-mobil', 'Chat auf dem Smartphone'],
+      ['admin-nutzung', 'Admin: Nutzung'],
+      ['admin-profil', 'Admin: Profil'],
+      ['admin-nutzer', 'Admin: Nutzer'],
+      ['admin-dokumente', 'Admin: Dokumente'],
+      ['admin-unternehmen', 'Admin: Unternehmen'],
+      ['admin-ki-einstellungen', 'Admin: KI-Einstellungen'],
+      ['admin-connectors', 'Admin: Connectors'],
+      ['admin-hardware', 'Hardware-Dashboard'],
+      ['admin-support', 'Admin: Support']
+    ];
+    var BRANDED = ['chat', 'einstellungen', 'admin-nutzung', 'admin-profil'];
+    var state = {
+      variant: 'standard',
+      theme: window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    };
+    var controls = document.querySelector('[data-gallery-controls]');
+    var box = document.querySelector('[data-lightbox]');
+    var lbImg = document.querySelector('[data-lb-img]');
+    var lbCap = document.querySelector('[data-lb-cap]');
+    var current = [];
+    var index = 0;
+
+    var src = function (id) { return BASE + state.variant + '/' + state.theme + '/' + id + '.png'; };
+
+    function syncControls() {
+      controls.querySelectorAll('button').forEach(function (x) {
+        var on = x.dataset.variant === state.variant || x.dataset.theme === state.theme;
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    function show() {
+      var s = current[index];
+      lbImg.src = src(s[0]);
+      lbImg.alt = s[1];
+      lbCap.textContent = s[1] + ' (' + (index + 1) + ' / ' + current.length + ')';
+    }
+    function openBox(i) {
+      index = i;
+      show();
+      if (box.showModal) { if (!box.open) box.showModal(); } else { box.setAttribute('open', ''); }
+    }
+    function closeBox() {
+      if (box.close) box.close(); else box.removeAttribute('open');
+    }
+    function step(d) { index = (index + d + current.length) % current.length; show(); }
+
+    function render() {
+      current = SHOTS.filter(function (s) { return state.variant === 'standard' || BRANDED.indexOf(s[0]) !== -1; });
+      gallery.textContent = '';
+      current.forEach(function (s, i) {
+        var fig = document.createElement('figure');
+        fig.className = 'shot' + (s[0] === 'chat-mobil' ? ' portrait' : '');
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', s[1] + ' vergrößern');
+        var img = document.createElement('img');
+        img.src = src(s[0]);
+        img.alt = s[1];
+        img.loading = 'lazy';
+        b.appendChild(img);
+        b.addEventListener('click', function () { openBox(i); });
+        var cap = document.createElement('figcaption');
+        cap.textContent = s[1];
+        fig.appendChild(b);
+        fig.appendChild(cap);
+        gallery.appendChild(fig);
+      });
+    }
+
+    controls.hidden = false;
+    controls.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      if (b.dataset.variant) state.variant = b.dataset.variant;
+      if (b.dataset.theme) state.theme = b.dataset.theme;
+      syncControls();
+      render();
+    });
+    box.addEventListener('click', function (e) {
+      var a = e.target.dataset && e.target.dataset.lb;
+      if (a === 'prev') step(-1);
+      else if (a === 'next') step(1);
+      else if (a === 'close' || e.target === box) closeBox();
+    });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    });
+    syncControls();
+    render();
+  }
 })();

@@ -79,32 +79,44 @@
     <section class="block" id="screenshots">
       <div class="wrap">
         <h2>Screenshots</h2>
-        <p class="lead">Chat, Admin-Bereich und Hardware-Dashboard (Beispieldaten).</p>
-        <div class="shots">
+        <p class="lead">Chat, Admin-Bereich und Hardware-Dashboard (Beispieldaten). Ein Klick vergrößert das Bild.</p>
+        <div class="gallery-controls" data-gallery-controls hidden>
+          <div class="seg" role="group" aria-label="Design">
+            <button type="button" data-variant="standard">Standard</button>
+            <button type="button" data-variant="aurora">Aurora</button>
+            <button type="button" data-variant="echo">Echo</button>
+          </div>
+          <div class="seg" role="group" aria-label="Farbschema">
+            <button type="button" data-theme="light">Hell</button>
+            <button type="button" data-theme="dark">Dunkel</button>
+          </div>
+        </div>
+        <div class="shots" data-gallery>
           <figure class="shot">
-            <picture>
-              <source srcset="assets/screenshots/standard/dark/chat.png" media="(prefers-color-scheme: dark)">
-              <img src="assets/screenshots/standard/light/chat.png" alt="Chat mit Antwort und Quellenangabe" width="1440" height="900" loading="lazy">
-            </picture>
+            <a href="assets/screenshots/standard/light/chat.png" target="_blank" rel="noopener"><img src="assets/screenshots/standard/light/chat.png" alt="Chat mit Antwort und Quellenangabe" width="1440" height="900" loading="lazy"></a>
             <figcaption>Chat mit Quellenbelegen</figcaption>
           </figure>
           <figure class="shot">
-            <picture>
-              <source srcset="assets/screenshots/standard/dark/admin-nutzung.png" media="(prefers-color-scheme: dark)">
-              <img src="assets/screenshots/standard/light/admin-nutzung.png" alt="Admin-Bereich: Nutzungsstatistik" width="1440" height="900" loading="lazy">
-            </picture>
+            <a href="assets/screenshots/standard/light/admin-nutzung.png" target="_blank" rel="noopener"><img src="assets/screenshots/standard/light/admin-nutzung.png" alt="Admin-Bereich: Nutzungsstatistik" width="1440" height="900" loading="lazy"></a>
             <figcaption>Admin: Nutzung</figcaption>
           </figure>
           <figure class="shot">
-            <picture>
-              <source srcset="assets/screenshots/standard/dark/admin-hardware.png" media="(prefers-color-scheme: dark)">
-              <img src="assets/screenshots/standard/light/admin-hardware.png" alt="Admin-Bereich: Hardware-Dashboard" width="1440" height="900" loading="lazy">
-            </picture>
+            <a href="assets/screenshots/standard/light/admin-hardware.png" target="_blank" rel="noopener"><img src="assets/screenshots/standard/light/admin-hardware.png" alt="Admin-Bereich: Hardware-Dashboard" width="1440" height="900" loading="lazy"></a>
             <figcaption>Hardware-Dashboard</figcaption>
           </figure>
         </div>
       </div>
     </section>
+
+    <dialog class="lightbox" data-lightbox aria-label="Screenshot-Ansicht">
+      <button type="button" class="lb-close" data-lb="close" aria-label="Schließen">×</button>
+      <button type="button" class="lb-nav lb-prev" data-lb="prev" aria-label="Vorheriges Bild">‹</button>
+      <figure>
+        <img alt="" data-lb-img>
+        <figcaption data-lb-cap></figcaption>
+      </figure>
+      <button type="button" class="lb-nav lb-next" data-lb="next" aria-label="Nächstes Bild">›</button>
+    </dialog>
 
     <section class="block" id="kontakt">
       <div class="wrap">
