@@ -72,7 +72,7 @@
     <section class="block" id="architektur">
       <div class="wrap">
         <h2>Architektur in Kürze</h2>
-        <p class="lead">Alles läuft als Docker-Compose-Stack. Einzige Ausnahme: Ollama (Standard-Inferenz) läuft nativ auf dem Rechner und wird vom Installer bei Bedarf mitinstalliert.</p>
+        <p class="lead">Alles läuft nach der Installation als Dienst im Hintergrund, ohne Docker und ohne WSL. Ollama und die Modelle liefert der Installer mit.</p>
         <div class="arch"><img src="assets/architektur.svg" alt="Web-Oberfläche greift auf das Backend zu; das Backend nutzt Inferenz, Vektordatenbank, Dokumentenverarbeitung, optional Sprache und PostgreSQL." width="760" height="360"></div>
       </div>
     </section>
@@ -122,7 +122,7 @@
     <section class="block" id="kontakt">
       <div class="wrap">
         <h2>Kontakt und Lizenz</h2>
-        <p class="lead">Für Lizenzanfragen und Zugangstoken wenden Sie sich bitte an den Anbieter.
+        <p class="lead">Für Lizenzanfragen und Lizenzschlüssel wenden Sie sich bitte an den Anbieter.
           <!-- TODO: Kontaktweg eintragen --> <a href="mailto:kontakt@example.com">kontakt@example.com</a>
           · <a href="https://claude.ai/artifact/D8hR37cBCNKZLZEfdcZSXo" rel="noopener">Präsentation (12 Folien)</a></p>
         <a class="btn" href="download.html">Zur Installation</a>

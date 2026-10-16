@@ -1,33 +1,20 @@
 (function () {
   'use strict';
 
-  // Zentrale Konfiguration: Befehle und Repo nur hier pflegen.
+  // Zentrale Konfiguration: Repo und Befehle nur hier pflegen.
   var INSTALLER_REPO = 'Benexdrake/sovereignmind-installer';
-  var RAW = 'https://raw.githubusercontent.com/' + INSTALLER_REPO + '/main/';
+  var RELEASES = 'https://github.com/' + INSTALLER_REPO + '/releases/latest';
   var COMMANDS = {
-    windows:
-      '$env:SOVEREIGNMIND_GHCR_TOKEN = "<dein-token>"\n' +
-      'irm ' + RAW + 'install.ps1 | iex',
-    linux:
-      'export SOVEREIGNMIND_GHCR_TOKEN=<dein-token>\n' +
-      'curl -fsSL ' + RAW + 'install.sh | bash',
-    macos:
-      'export SOVEREIGNMIND_GHCR_TOKEN=<dein-token>\n' +
-      'curl -fsSL ' + RAW + 'install.sh | bash'
-  };
-  var SCRIPT_LINKS = {
-    windows: RAW + 'install.ps1',
-    linux: RAW + 'install.sh',
-    macos: RAW + 'install.sh'
+    windows: '',
+    linux: 'sudo apt install ./sovereignmind-models_*.deb ./sovereignmind_*.deb'
   };
 
-  // Befehle in die Tabs rendern
+  // Befehle und Download-Links rendern
   Object.keys(COMMANDS).forEach(function (os) {
     var code = document.querySelector('[data-cmd="' + os + '"]');
     if (code) code.textContent = COMMANDS[os];
-    var link = document.querySelector('[data-script="' + os + '"]');
-    if (link) link.href = SCRIPT_LINKS[os];
   });
+  document.querySelectorAll('[data-release]').forEach(function (a) { a.href = RELEASES; });
 
   // Tabs
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
@@ -43,9 +30,8 @@
   }
   if (tabs.length) {
     var fromHash = location.hash.replace('#', '');
-    var detected = /Win/i.test(navigator.userAgent) ? 'windows'
-      : /Mac/i.test(navigator.userAgent) ? 'macos' : 'linux';
-    select(COMMANDS[fromHash] ? fromHash : detected, false);
+    var detected = /Win/i.test(navigator.userAgent) ? 'windows' : 'linux';
+    select(fromHash in COMMANDS ? fromHash : detected, false);
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function () {
         select(t.dataset.os, false);
@@ -60,7 +46,7 @@
     });
     window.addEventListener('hashchange', function () {
       var h = location.hash.replace('#', '');
-      if (COMMANDS[h]) select(h, false);
+      if (h in COMMANDS) select(h, false);
     });
   }
 
