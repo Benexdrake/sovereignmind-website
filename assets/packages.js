@@ -108,6 +108,32 @@
     return d;
   }
 
+  var DESC_MAX = 90;
+
+  function description(text) {
+    var p = el('p', 'pkg-desc');
+    if (text.length <= DESC_MAX) {
+      p.textContent = text;
+      return p;
+    }
+    var short = text.slice(0, DESC_MAX).replace(/\s+\S*$/, '') + ' …';
+    var open = false;
+    function paint() {
+      p.textContent = open ? text : short;
+      p.setAttribute('aria-expanded', String(open));
+      p.title = open ? 'Zum Einklappen klicken' : 'Zum Ausklappen klicken';
+    }
+    p.classList.add('pkg-desc-toggle');
+    p.tabIndex = 0;
+    p.setAttribute('role', 'button');
+    p.addEventListener('click', function () { open = !open; paint(); });
+    p.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open = !open; paint(); }
+    });
+    paint();
+    return p;
+  }
+
   function card(g) {
     var e = g.current;
     var c = el('article', 'card pkg');
@@ -116,8 +142,8 @@
     head.appendChild(el('span', 'pkg-badge', e.category || 'Ohne Kategorie'));
     c.appendChild(head);
 
-    c.appendChild(el('p', 'pkg-meta', 'Version ' + (e.version || '–') + ' · ' + mb(e.sizeBytes) + ' · ' + (e.priceText ? e.priceText : 'kostenlos')));
-    if (e.description) c.appendChild(el('p', null, e.description));
+    c.appendChild(el('p', 'pkg-meta', 'Version ' + (e.version || '–') + ' · ' + mb(e.sizeBytes) + (e.priceText ? ' · ' + e.priceText : '')));
+    if (e.description) c.appendChild(description(e.description));
     if (e.requiredFeature) c.appendChild(el('div', 'note', 'Benötigt das Lizenz-Feature „' + e.requiredFeature + '“.'));
 
     var actions = el('p', 'pkg-actions');

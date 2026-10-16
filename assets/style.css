@@ -168,7 +168,11 @@ footer.site a { color: var(--muted); margin-right: 16px; }
 .pkg .pkg-meta { margin: 6px 0 10px; font-size: .9rem; }
 .pkg p { color: var(--text); }
 .pkg .pkg-meta { color: var(--muted); }
-.pkg-actions { margin: 14px 0 0; }
+.pkg .pkg-desc { margin: 0 0 4px; }
+.pkg .pkg-desc-toggle { cursor: pointer; }
+.pkg .pkg-desc-toggle:hover { color: var(--accent-hi); }
+.pkg .pkg-desc-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.pkg-actions { margin: 24px 0 0; }
 .pkg details { margin: 12px 0 0; padding: 8px 12px; }
 .pkg .cmd { margin: 8px 0 4px; }
 .pkg .cmd pre { white-space: pre-wrap; word-break: break-all; }
