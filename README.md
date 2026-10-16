@@ -21,3 +21,10 @@ python -m http.server 8080   # im Ordner Github_Page, dann http://localhost:8080
 
 Ordnerinhalt als Wurzel eines öffentlichen Repos pushen; Settings → Pages → Quelle „GitHub Actions“
 (Workflow `.github/workflows/pages.yml`).
+
+## Pakete pflegen
+
+Die Seite `wissenspakete.html` liest `packages/index.json`. Diese Datei kommt aus dem PackTool
+(Release-Bundle, `Support/scripts/publish-packages.ps1`) und wird **nicht von Hand geändert**.
+Neue Version = neuer Eintrag, ältere Versionen erscheinen unter „Weitere Versionen“;
+`withdrawn: true` blendet einen Eintrag aus. Alle Texte werden per `textContent` ausgegeben.
