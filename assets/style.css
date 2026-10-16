@@ -18,6 +18,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background:
     radial-gradient(900px 500px at 50% -80px, rgba(0,137,207,.35), transparent 70%),
     linear-gradient(rgba(56,189,248,.045) 1px, transparent 1px) 0 0 / 100% 40px,
@@ -36,6 +39,8 @@ h1, h2 { font-weight: 800; font-style: italic; }
 ::selection { background: var(--accent); color: #fff; }
 a { color: var(--accent); }
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+body > main { flex: 1 0 auto; width: 100%; }
+body > footer.site { flex-shrink: 0; }
 .skip { position: absolute; left: -999px; }
 .skip:focus { left: 8px; top: 8px; background: var(--surface); padding: 8px; z-index: 10; }
 
