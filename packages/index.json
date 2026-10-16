@@ -1,0 +1,17 @@
+{
+  "packages": [
+    {
+      "slug": "stvo",
+      "version": "1.1.0",
+      "name": "Stra\u00DFenverkehrs-Ordnung",
+      "category": "Verordnungen",
+      "sizeBytes": 2052951,
+      "sha256": "4a7cf72d1b6ae6dfceaa69dfd1cdfeba711352f7daa1dedf0f9da136473fa904",
+      "url": "https://github.com/Benexdrake/sovereignmind-installer/releases/download/pkg-stvo-1.1.0/stvo-1.1.0.smpack",
+      "requiredFeature": null,
+      "description": "Stra\u00DFenverkehrs-Ordnung (StVO) in der aktuellen amtlichen Fassung als durchsuchbares Wissenspaket (210 Abschnitte). Quelle: Bundesministerium der Justiz, gesetze-im-internet.de.",
+      "priceText": null,
+      "withdrawn": false
+    }
+  ]
+}
