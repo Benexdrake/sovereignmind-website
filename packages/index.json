@@ -1,15 +1,32 @@
 {
   "packages": [
     {
+      "slug": "bgb",
+      "version": "1.0.0",
+      "name": "B\u00FCrgerliches Gesetzbuch",
+      "category": "Gesetze",
+      "sizeBytes": 17020188,
+      "sha256": "cc813f9a90426eba8011e710ca1f37f3efbae4f894df5015e991bd5c870a3b90",
+      "url": "https://github.com/Benexdrake/sovereignmind-installer/releases/download/pkg-bgb-1.0.0/bgb-1.0.0.smpack",
+      "requiredFeature": null,
+      "description": "B\u00FCrgerliches Gesetzbuch (BGB) in der aktuellen amtlichen Fassung als durchsuchbares Wissenspaket. Quelle: Bundesministerium der Justiz, gesetze-im-internet.de.",
+      "source": "Bundesministerium der Justiz (gesetze-im-internet.de)",
+      "license": "amtliches Werk, gemeinfrei (\u00A7 5 UrhG)",
+      "priceText": null,
+      "withdrawn": false
+    },
+    {
       "slug": "stvo",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "name": "Stra\u00DFenverkehrs-Ordnung",
       "category": "Verordnungen",
-      "sizeBytes": 2052951,
-      "sha256": "4a7cf72d1b6ae6dfceaa69dfd1cdfeba711352f7daa1dedf0f9da136473fa904",
-      "url": "https://github.com/Benexdrake/sovereignmind-installer/releases/download/pkg-stvo-1.1.0/stvo-1.1.0.smpack",
+      "sizeBytes": 2052716,
+      "sha256": "4e78627dc65a9858fa780484f8ae52a8a4456acc2b8d5c4d3c515abe869b97ba",
+      "url": "https://github.com/Benexdrake/sovereignmind-installer/releases/download/pkg-stvo-1.2.0/stvo-1.2.0.smpack",
       "requiredFeature": null,
-      "description": "Stra\u00DFenverkehrs-Ordnung (StVO) in der aktuellen amtlichen Fassung als durchsuchbares Wissenspaket (210 Abschnitte). Quelle: Bundesministerium der Justiz, gesetze-im-internet.de.",
+      "description": "Stra\u00DFenverkehrs-Ordnung (StVO) in der aktuellen amtlichen Fassung als durchsuchbares Wissenspaket. Quelle: Bundesministerium der Justiz, gesetze-im-internet.de.",
+      "source": "Bundesministerium der Justiz (gesetze-im-internet.de)",
+      "license": "amtliches Werk, gemeinfrei (\u00A7 5 UrhG)",
       "priceText": null,
       "withdrawn": false
     }
