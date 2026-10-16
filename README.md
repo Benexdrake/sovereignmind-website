@@ -24,7 +24,7 @@ Ordnerinhalt als Wurzel eines öffentlichen Repos pushen; Settings → Pages →
 
 ## Pakete pflegen
 
-Die Seite `wissenspakete.html` liest `packages/index.json`. Diese Datei kommt aus dem PackTool
+Die Seite `wissenspakete.html` liest `packages/index.json`. Diese Datei kommt aus dem Admin-Tool
 (Release-Bundle, `Support/scripts/publish-packages.ps1`) und wird **nicht von Hand geändert**.
 Neue Version = neuer Eintrag, ältere Versionen erscheinen unter „Weitere Versionen“;
 `withdrawn: true` blendet einen Eintrag aus. Alle Texte werden per `textContent` ausgegeben.
