@@ -7,6 +7,7 @@
   <meta name="description" content="DSGVO-konformer KI-Assistent über die eigenen Firmendokumente, der komplett lokal beim Kunden läuft. Für den DACH-Mittelstand.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/demo.css">
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt</a>
@@ -15,6 +16,7 @@
       <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="28" height="28">SovereignMind</a>
       <nav class="main" aria-label="Hauptnavigation">
         <a href="#funktionen">Funktionen</a>
+        <a href="#assistenten">Assistenten</a>
         <a href="#architektur">Architektur</a>
         <a href="#kontakt">Kontakt</a>
         <a href="praesentation/index.html">Präsentation</a>
@@ -62,14 +64,64 @@
           <div class="card"><h3>Chat mit Quellenbelegen</h3><p>Fragen in natürlicher Sprache, Antworten mit klickbaren Verweisen ins Originaldokument. Antworten immer auf Deutsch.</p></div>
           <div class="card"><h3>Dokumentenverwaltung</h3><p>PDF, DOCX, Tabellen u. a. werden automatisch geparst und durchsuchbar gemacht. Kategorien, Duplikaterkennung, Verarbeitungsstatus.</p></div>
           <div class="card"><h3>Nutzer und Rollen</h3><p>Admin und Member, eigenes Branding pro Unternehmen.</p></div>
-          <div class="card"><h3>Assistenten und Prompt-Bibliothek</h3><p>Vorkonfigurierte Assistenten und wiederverwendbare Vorlagen für das ganze Team.</p></div>
-          <div class="card"><h3>Anbindung interner Systeme</h3><p>HTTP-Schnittstellen (DMS, ERP, Fachdatenbanken) lassen sich als Werkzeuge einbinden, die das Modell bei Bedarf selbst aufruft.</p></div>
+          <div class="card"><h3>Assistenten und Prompt-Bibliothek</h3><p>Assistenten mit Rolle, Persönlichkeit, Avatar und eigener Stimme sowie wiederverwendbare Vorlagen für das ganze Team.</p></div>
+          <div class="card"><h3>Anbindung interner Systeme</h3><p>HTTP-Schnittstellen (DMS, ERP, Fachdatenbanken) lassen sich als Werkzeuge einbinden, die das Modell bei Bedarf selbst aufruft. Fertige Vorlagen für HubSpot, Microsoft 365, Jira und mehr.</p></div>
           <div class="card"><h3>Dateien im Chat</h3><p>Dokumente direkt in einer Unterhaltung hochladen, ohne sie dauerhaft abzulegen.</p></div>
-          <div class="card"><h3>Sprache</h3><p>Diktat und Vorlesen, lokal verarbeitet. Der Admin schaltet beides pro Unternehmen frei.</p></div>
-          <div class="card"><h3>Wissenspakete</h3><p>Vorverarbeitete Gesetze und Regelwerke als signierte Pakete, die der Admin aus dem Katalog installiert oder als Datei importiert.</p></div>
+          <div class="card"><h3>Sprache</h3><p>Diktat und Vorlesen mit mehreren Stimmen, lokal verarbeitet. Der Admin schaltet beides pro Unternehmen frei.</p></div>
+          <div class="card"><h3>Wissenspakete</h3><p>Vorverarbeitete Gesetze und Regelwerke als Pakete, die der Admin aus dem Katalog installiert oder als Datei importiert.</p></div>
           <div class="card"><h3>Themes</h3><p>Jeder Nutzer wählt Stil, Hell/Dunkel und Akzentfarbe; das Unternehmen kann eine Akzentfarbe vorgeben.</p></div>
           <div class="card"><h3>Support-Nachrichten</h3><p>Nutzer schreiben dem Admin über ein Kontaktformular direkt aus der App.</p></div>
           <div class="card"><h3>Admin-Bereich</h3><p>Nutzer, Dokumente, Branding, Lizenz, KI-Einstellungen, Wissenspakete, Support, Nutzungsstatistik, Logs und Hardware-Dashboard.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="assistenten">
+      <div class="wrap">
+        <h2>Assistenten, Stimmen und Schnittstellen</h2>
+        <p class="lead">Jedes Unternehmen stellt sich seine Assistenten selbst zusammen: mit Fachwissen, Charakter, Gesicht und Stimme, und mit Zugriff auf die Systeme, die im Haus schon laufen.</p>
+
+        <h3 class="sub">Assistenten konfigurieren</h3>
+        <div class="grid">
+          <div class="card"><h3>Rollen</h3><p>Eine Rolle trägt die Fachanweisung, zum Beispiel „Vertragsprüfer“. Jeder Assistent hat höchstens eine; wird die Rolle gelöscht, bleiben die Assistenten bestehen.</p></div>
+          <div class="card"><h3>Persönlichkeit</h3><p>Ton und Charakter legt der Admin pro Assistent fest, dazu Anzeigename und eine Zusatzanweisung. Mitgeliefert sind Clara, Jonas, Sam und Robin.</p></div>
+          <div class="card"><h3>Avatar</h3><p>Eine von 20 mitgelieferten Vorlagen (KI-generierte Gesichter und Illustrationen) oder ein eigenes Bild. Im Chat erscheint der Avatar neben jeder Antwort, mit Hinweis „KI-Assistent“.</p></div>
+          <div class="card"><h3>Wissen und Werkzeuge</h3><p>Pro Assistent lassen sich Dokumentkategorien als Wissensbasis und Schnittstellen als Werkzeuge zuordnen.</p></div>
+          <div class="card"><h3>Eigene Stimme</h3><p>Der Admin weist jedem Assistenten eine Stimme zu. Mitglieder wählen: Standard, Stimme des Assistenten oder eigene Stimme.</p></div>
+          <div class="card"><h3>Prompt-Bibliothek</h3><p>Wiederverwendbare Vorlagen, die Nutzer im Chat mit einem Klick einfügen.</p></div>
+        </div>
+
+        <h3 class="sub">Beispiel: So kann ein Chat aussehen</h3>
+        <p class="lead">Gemockte Unterhaltung mit vier Assistenten. Wählen Sie einen aus und lassen Sie sich die Antwort vorlesen.</p>
+        <div class="demo" data-demo>
+          <div class="demo-tabs" role="tablist" aria-label="Assistent wählen"></div>
+          <div class="demo-chat" aria-live="polite"></div>
+          <p class="demo-note" data-demo-note></p>
+        </div>
+        <div class="voices">
+          <h4>Stimmenproben (Qwen3-TTS)</h4>
+          <div class="voice-row">
+            <figure><figcaption>Ramona (Standard)</figcaption><audio controls preload="none" src="assets/voices/ramona.wav"></audio></figure>
+            <figure><figcaption>Karlsson</figcaption><audio controls preload="none" src="assets/voices/karlsson.wav"></audio></figure>
+            <figure><figcaption>Thorsten</figcaption><audio controls preload="none" src="assets/voices/thorsten.wav"></audio></figure>
+          </div>
+          <p class="demo-note">Quellen: M-AILABS Speech Dataset (Ramona Deininger, Karlsson), Thorsten-Voice (Thorsten Müller, CC0). Das Vorlesen im Beispiel-Chat nutzt die Sprachausgabe Ihres Browsers als Vorschau, im Produkt liest die gewählte Stimme vor.</p>
+        </div>
+
+        <h3 class="sub">Anbindung per API</h3>
+        <p class="lead">Das Modell ruft angebundene Systeme bei Bedarf selbst auf. Die Aufrufe erscheinen als aufklappbare Karte im Chat, Zugangsdaten werden verschlüsselt gespeichert, erlaubte Ziel-Hosts begrenzt eine Allowlist.</p>
+        <div class="grid">
+          <div class="card"><h3>Anbieter-Vorlagen</h3><p>Fertige Vorlagen für HubSpot (CRM), Zendesk, Stripe, Notion, Jira Cloud, Hero (Handwerkersoftware) und Microsoft 365 mit OAuth2. Alle nur lesend.</p></div>
+          <div class="card"><h3>Eigene Schnittstellen</h3><p>Generische Gerüste für Volltextsuche, Terminabfrage und Ticketstatus, anpassbar an jedes interne HTTP-System wie DMS oder ERP.</p></div>
+          <div class="card"><h3>Geführte Einrichtung</h3><p>Die Vorlagenauswahl bietet Suche, Kategorie-Filter, Funktionsauswahl sowie Hinweise zu Zugangsdaten und Einrichtung.</p></div>
+        </div>
+
+        <h3 class="sub">Stimmen</h3>
+        <p class="lead">Diktat und Vorlesen laufen komplett lokal. Auf einem Rechner mit GPU liest Qwen3-TTS vor, sonst Piper auf der CPU.</p>
+        <div class="grid">
+          <div class="card"><h3>Mehrere Stimmen</h3><p>Zur Auswahl stehen Ramona (Standard), Karlsson und Thorsten. Weitere Stimmen lassen sich als kleine Artefakte (ca. 45 KB) ergänzen, ohne den Dienst zu ändern.</p></div>
+          <div class="card"><h3>Diktat</h3><p>Spracheingabe per faster-whisper landet direkt im Eingabefeld des Chats.</p></div>
+          <div class="card"><h3>Pro Unternehmen und Nutzer</h3><p>Der Admin schaltet Diktat und Vorlesen einzeln frei und legt die Standardstimme fest. Nutzer wählen im Profil ihren Stimmen-Modus.</p></div>
         </div>
       </div>
     </section>
@@ -130,7 +182,7 @@
         <h2>Kontakt und Lizenz</h2>
         <p class="lead">Für Lizenzanfragen und Lizenzschlüssel wenden Sie sich bitte an den Anbieter.
           <!-- TODO: Kontaktweg eintragen --> <a href="mailto:kontakt@example.com">kontakt@example.com</a>
-          · <a href="praesentation/index.html">Präsentation (14 Folien)</a></p>
+          · <a href="praesentation/index.html">Präsentation (17 Folien)</a></p>
         <a class="btn" href="download.html">Zur Installation</a>
       </div>
     </section>
@@ -143,5 +195,6 @@
     </div>
   </footer>
   <script src="assets/app.js" defer></script>
+  <script src="assets/demo.js" defer></script>
 </body>
 </html>

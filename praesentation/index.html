@@ -56,7 +56,7 @@
     <div class="card tight"><h3>Inferenz</h3><p>Ollama, nativ auf dem Host</p></div>
     <div class="card tight"><h3>Qdrant</h3><p>Vektorsuche</p></div>
     <div class="card tight"><h3>Ingestion</h3><p>Docling (Python)</p></div>
-    <div class="card tight"><h3>Voice</h3><p>faster-whisper, Piper, XTTS-v2</p></div>
+    <div class="card tight"><h3>Voice</h3><p>faster-whisper, Piper, Qwen3-TTS</p></div>
     <div class="card tight"><h3>PostgreSQL</h3><p>Tenants, Nutzer, Dokumente, Lizenz</p></div>
   </div>
 </section>
@@ -67,7 +67,7 @@
   <div class="row">
     <div class="card"><p class="num sm">1</p><h3 class="w">Ingestion</h3><p>Upload, Parsing mit Docling, Chunking, Embedding, Speichern in Qdrant. Duplikate erkennt ein Inhalts-Hash.</p></div>
     <div class="card"><p class="num sm">2</p><h3 class="w">Query</h3><p>Frage embedden, Qdrant-Suche, Prompt mit Treffern, Streaming-Antwort auf Deutsch mit klickbaren Quellenzitaten.</p></div>
-    <div class="card"><p class="num sm">3</p><h3 class="w">Sprache</h3><p>Diktat per faster-whisper ins Eingabefeld, Antworten per Piper oder XTTS-v2 vorlesen.</p></div>
+    <div class="card"><p class="num sm">3</p><h3 class="w">Sprache</h3><p>Diktat per faster-whisper ins Eingabefeld, Antworten per Piper oder Qwen3-TTS vorlesen.</p></div>
   </div>
 </section>
 
@@ -76,21 +76,54 @@
   <div class="head"><p class="eyebrow">Funktionen</p><h2>Mehr als ein Chatfenster</h2></div>
   <div class="row">
     <div class="card"><h3>Gesprächsverlauf</h3><p>Folgefragen werden vor der Suche zu eigenständigen Anfragen umformuliert.</p></div>
-    <div class="card"><h3>Personas</h3><p>Assistenten mit Systemprompt, Kategorie-Filter und Connectors.</p></div>
+    <div class="card"><h3>Assistenten</h3><p>Rolle, Persönlichkeit, Avatar, Stimme, Kategorie-Filter und Schnittstellen pro Assistent.</p></div>
     <div class="card"><h3>Prompt-Bibliothek</h3><p>Wiederverwendbare Vorlagen, direkt im Chat wählbar.</p></div>
   </div>
   <div class="row">
-    <div class="card"><h3>Custom Connectors</h3><p>Das Modell ruft interne HTTP-Schnittstellen (DMS, ERP) selbst auf.</p></div>
+    <div class="card"><h3>Schnittstellen</h3><p>Das Modell ruft interne HTTP-Systeme und Anbieter-APIs selbst auf.</p></div>
     <div class="card"><h3>Chat-Uploads</h3><p>Dateien in einer Konversation durchsuchen, ohne sie dauerhaft abzulegen.</p></div>
-    <div class="card"><h3>Sprache</h3><p>Diktat und Vorlesen, pro Tenant vom Admin freigeschaltet.</p></div>
+    <div class="card"><h3>Sprache</h3><p>Diktat und Vorlesen mit mehreren Stimmen, pro Tenant freigeschaltet.</p></div>
   </div>
 </section>
 
-<!-- 7 Erweiterungen -->
+<!-- 7 Assistenten -->
+<section class="slide alt" data-title="Assistenten">
+  <div class="head"><p class="eyebrow">Assistenten</p><h2>Jeder Assistent mit Rolle, Charakter und Gesicht</h2></div>
+  <div class="row">
+    <div class="card"><h3>Rolle</h3><p>Die Fachanweisung, z. B. „Vertragsprüfer“. Ein Assistent hat höchstens eine Rolle.</p></div>
+    <div class="card"><h3>Persönlichkeit</h3><p>Ton und Charakter, Anzeigename und Zusatzanweisung. Mitgeliefert: Clara, Jonas, Sam, Robin.</p></div>
+    <div class="card"><h3>Avatar</h3><p>20 Vorlagen oder eigenes Bild, im Chat mit Hinweis „KI-Assistent“.</p></div>
+    <div class="card"><h3>Wissen &amp; Werkzeuge</h3><p>Kategorien als Wissensbasis, Schnittstellen als Werkzeuge, eigene Stimme.</p></div>
+  </div>
+</section>
+
+<!-- 8 Schnittstellen -->
+<section class="slide" data-title="Schnittstellen">
+  <div class="head"><p class="eyebrow">Schnittstellen</p><h2>Anbindung per API, vom Modell selbst aufgerufen</h2></div>
+  <div class="row">
+    <div class="card" style="gap:20px;padding:48px"><p class="tag">Anbieter-Vorlagen</p><h3 class="big">Fertig konfiguriert</h3>
+      <ul><li>HubSpot, Zendesk, Stripe, Notion, Jira Cloud</li><li>Hero (Handwerkersoftware)</li><li>Microsoft 365 mit OAuth2</li><li>Alle nur lesend</li></ul></div>
+    <div class="card" style="gap:20px;padding:48px"><p class="tag">Eigene Systeme</p><h3 class="big">DMS, ERP, Fachdatenbanken</h3>
+      <ul><li>Generische Gerüste für Suche, Termine, Tickets</li><li>Aufrufe als aufklappbare Karte im Chat</li><li>Secrets verschlüsselt, Ziel-Hosts per Allowlist</li></ul></div>
+  </div>
+</section>
+
+<!-- 9 Stimmen -->
+<section class="slide alt" data-title="Stimmen">
+  <div class="head"><p class="eyebrow">Stimmen</p><h2>Vorlesen und Diktat, komplett lokal</h2></div>
+  <div class="row">
+    <div class="card"><p class="num sm">3</p><h3 class="w">Stimmen</h3><p>Ramona (Standard), Karlsson und Thorsten. Neue Stimmen sind kleine Artefakte von ca. 45 KB.</p></div>
+    <div class="card"><p class="num sm">GPU</p><h3 class="w">Qwen3-TTS</h3><p>Mit GPU natürliche Stimmen, ohne GPU liest Piper auf der CPU vor.</p></div>
+    <div class="card"><h3>Pro Assistent</h3><p>Der Admin weist jedem Assistenten eine Stimme zu. Mitglieder wählen Standard, Assistent oder eigene Stimme.</p></div>
+    <div class="card"><h3>Diktat</h3><p>faster-whisper schreibt die Sprache direkt ins Eingabefeld.</p></div>
+  </div>
+</section>
+
+<!-- Erweiterungen -->
 <section class="slide alt" data-title="Erweiterungen">
   <div class="head"><p class="eyebrow">Erweiterungen</p><h2>Wissenspakete, Themes und Support</h2></div>
   <div class="row">
-    <div class="card"><h3>Wissenspakete</h3><p>Vorverarbeitete Gesetze und Regelwerke als signierte Pakete. Der Admin installiert sie aus dem Katalog oder importiert eine Datei.</p></div>
+    <div class="card"><h3>Wissenspakete</h3><p>Vorverarbeitete Gesetze und Regelwerke als Pakete. Der Admin installiert sie aus dem Katalog oder importiert eine Datei.</p></div>
     <div class="card"><h3>Themes</h3><p>Jeder Nutzer wählt Stil, Hell oder Dunkel und Akzentfarbe. Das Unternehmen kann eine Akzentfarbe vorgeben.</p></div>
     <div class="card"><h3>Support</h3><p>Nutzer schreiben dem Admin über ein Kontaktformular, der Admin sieht Posteingang und Diagnose.</p></div>
   </div>
@@ -118,7 +151,7 @@
     <tr><td>Vektor-DB</td><td>Qdrant</td><td>Guter .NET-Client, REST/gRPC</td></tr>
     <tr><td>Parsing</td><td>Docling (Python)</td><td>Air-Gapped-fähig, Modelle vorgeladen</td></tr>
     <tr><td>Inferenz</td><td>Ollama (nativ)</td><td>Nutzt die GPU über den Host-Treiber</td></tr>
-    <tr><td>Voice</td><td>faster-whisper, Piper / XTTS-v2</td><td>Diktat und Vorlesen lokal, Freigabe pro Tenant</td></tr>
+    <tr><td>Voice</td><td>faster-whisper, Piper / Qwen3-TTS</td><td>Diktat und Vorlesen lokal, Freigabe pro Tenant</td></tr>
     <tr><td>Lizenz</td><td>Signierte JWE-Tokens</td><td>Offline-Prüfung, kein Lizenzserver</td></tr>
     <tr><td>Deployment</td><td>Nativer Installer</td><td>Windows-Setup und Linux-.deb, kein Docker</td></tr>
   </table>
@@ -171,7 +204,7 @@
   <p class="eyebrow">Zusammenfassung</p>
   <div class="stmt-body">
     <h2>Datenhoheit als Produkt</h2>
-    <ul><li>RAG-Chat mit Quellenbelegen, komplett lokal</li><li>Multi-Tenant, Rollen, Offline-Lizenz, Admin-Bereich</li><li>Funktional umgesetzt, nativer Installer für Windows und Linux</li></ul>
+    <ul><li>RAG-Chat mit Quellenbelegen, komplett lokal</li><li>Konfigurierbare Assistenten mit Avatar und Stimme, API-Anbindung</li><li>Multi-Tenant, Rollen, Offline-Lizenz, Admin-Bereich</li><li>Funktional umgesetzt, nativer Installer für Windows und Linux</li></ul>
   </div>
   <div class="end-foot"><span>SovereignMind · On-Premise KI-Gateway für den DACH-Mittelstand</span><img src="../assets/logo.svg" alt=""></div>
 </section>

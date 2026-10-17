@@ -99,6 +99,7 @@
     var BASE = 'assets/screenshots/';
     var SHOTS = [
       ['chat', 'Chat mit Quellenbelegen'],
+      ['chat-assistenten', 'Assistenten im Chat wählen'],
       ['einstellungen', 'Einstellungen'],
       ['login', 'Anmeldung'],
       ['chat-mobil', 'Chat auf dem Smartphone'],
@@ -108,7 +109,8 @@
       ['admin-dokumente', 'Admin: Dokumente'],
       ['admin-unternehmen', 'Admin: Unternehmen'],
       ['admin-ki-einstellungen', 'Admin: KI-Einstellungen'],
-      ['admin-connectors', 'Admin: Connectors'],
+      ['admin-connectors', 'Admin: Schnittstellen'],
+      ['admin-connector-vorlagen', 'Admin: Schnittstellen-Vorlagen'],
       ['admin-hardware', 'Hardware-Dashboard'],
       ['admin-support', 'Admin: Support']
     ];
